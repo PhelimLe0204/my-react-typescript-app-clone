@@ -1,0 +1,81 @@
+/* ── CEO message ──────────────────────────────────── */
+.ceo-message {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.ceo-avatar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ceo-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #071a36, #1a7abf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+    border: 3px solid #e85d27;
+}
+
+.ceo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ceo-info strong {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0a1a2e;
+}
+
+.ceo-info span {
+    font-size: 13px;
+    color: #e85d27;
+    font-weight: 600;
+}
+
+.ceo-quote {
+    margin: 0;
+    padding: 28px 32px;
+    background: #f7f9fc;
+    border-left: 4px solid #e85d27;
+    position: relative;
+}
+
+.ceo-quote-hr {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.ceo-quote::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 64px;
+    color: rgba(232, 93, 39, 0.15);
+    line-height: 1;
+}
+
+.ceo-quote p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14.5px;
+    color: #445566;
+    line-height: 1.85;
+    margin: 0 0 16px;
+    font-style: italic;
+}
+
+.ceo-quote p:last-child {
+    margin-bottom: 0;
+}

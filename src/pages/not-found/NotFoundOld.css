@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=Rajdhani:wght@700;800&display=swap');
+
+/* ── Page container ─────────────────────────────── */
+.nf-page {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #03101f 0%, #071a36 50%, #0a2040 100%);
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* ── Animated canvas ─────────────────────────────── */
+.nf-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ── Grid bg ─────────────────────────────────────── */
+.nf-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(74, 163, 217, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 163, 217, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+.nf-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(3,16,31,0.2) 0%, rgba(3,16,31,0.7) 100%);
+  z-index: 1;
+}
+
+/* ── Main content ─────────────────────────────────── */
+.nf-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 640px;
+  width: 100%;
+}
+
+/* ── 404 Glitch ──────────────────────────────────── */
+.nf-code-wrap {
+  position: relative;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.nf-code {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(100px, 18vw, 180px);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(232, 93, 39, 0.8);
+  letter-spacing: 8px;
+  position: relative;
+  animation: glitchMain 4s infinite;
+  user-select: none;
+}
+
+.nf-code::before,
+.nf-code::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: inherit;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+
+.nf-code::before {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(74, 163, 217, 0.7);
+  animation: glitchTop 4s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.nf-code::after {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(232, 93, 39, 0.5);
+  animation: glitchBottom 4s infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchMain {
+  0%, 90%, 100% { transform: translate(0, 0); }
+  92%            { transform: translate(-3px, 1px); }
+  94%            { transform: translate(3px, -1px); }
+  96%            { transform: translate(-2px, 2px); }
+  98%            { transform: translate(2px, -2px); }
+}
+
+@keyframes glitchTop {
+  0%, 90%, 100% { transform: translate(0, 0); opacity: 1; }
+  91%            { transform: translate(4px, 0); opacity: 0.8; }
+  93%            { transform: translate(-4px, 0); opacity: 0.6; }
+  95%            { transform: translate(2px, 0); opacity: 0.9; }
+  97%            { transform: translate(0, 0); opacity: 0; }
+  99%            { transform: translate(-2px, 0); opacity: 0.7; }
+}
+
+@keyframes glitchBottom {
+  0%, 90%, 100% { transform: translate(0, 0); opacity: 1; }
+  92%            { transform: translate(-4px, 0); opacity: 0.7; }
+  94%            { transform: translate(4px, 0); opacity: 0.5; }
+  96%            { transform: translate(-2px, 0); opacity: 0.8; }
+  98%            { transform: translate(2px, 0); opacity: 0; }
+}
+
+/* ── Rotating rings ──────────────────────────────── */
+.nf-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.nf-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 163, 217, 0.15);
+  animation: ringRotate linear infinite;
+}
+
+.nf-ring-1 {
+  inset: 0;
+  animation-duration: 30s;
+  border-top-color: rgba(232, 93, 39, 0.3);
+}
+
+.nf-ring-2 {
+  inset: 40px;
+  animation-duration: 20s;
+  animation-direction: reverse;
+  border-right-color: rgba(74, 163, 217, 0.4);
+}
+
+.nf-ring-3 {
+  inset: 80px;
+  animation-duration: 12s;
+  border-bottom-color: rgba(74, 163, 217, 0.3);
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Text ────────────────────────────────────────── */
+.nf-title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.nf-desc {
+  font-size: 15px;
+  color: rgba(180, 210, 230, 0.75);
+  line-height: 1.8;
+  margin: 0 0 36px;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.nf-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.nf-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e85d27;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  text-decoration: none;
+  border: 2px solid #e85d27;
+  letter-spacing: 0.5px;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: all 0.25s ease;
+}
+
+.nf-btn-primary:hover {
+  background: transparent;
+  color: #e85d27;
+}
+
+.nf-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.5px;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: all 0.25s ease;
+}
+
+.nf-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Quick links ──────────────────────────────────── */
+.nf-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.nf-links-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nf-links-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nf-quick-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(74, 163, 217, 0.8);
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 1px solid rgba(74, 163, 217, 0.2);
+  transition: all 0.2s ease;
+}
+
+.nf-quick-link:hover {
+  color: #fff;
+  border-color: rgba(74, 163, 217, 0.5);
+  background: rgba(74, 163, 217, 0.08);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .nf-rings {
+    width: 260px;
+    height: 260px;
+  }
+
+  .nf-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nf-btn-primary,
+  .nf-btn-outline {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}

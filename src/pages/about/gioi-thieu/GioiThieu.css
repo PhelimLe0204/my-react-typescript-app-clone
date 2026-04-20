@@ -1,0 +1,334 @@
+/* ── Image placeholder ────────────────────────────── */
+.about-content-img-wrap {
+    margin-bottom: 28px;
+}
+
+.about-img-placeholder {
+    width: 100%;
+    height: 390px;
+    background: linear-gradient(135deg, #071a36, #0c2a52);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #4aa3d9;
+    overflow: hidden;
+}
+
+.about-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-img-placeholder span {
+    font-size: 13px;
+    color: rgba(74, 163, 217, 0.5);
+}
+
+figcaption {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+    color: #939393;
+    margin-top: 8px;
+}
+
+/* ── Info grid ────────────────────────────────────── */
+.about-info-grid {
+    display: grid;
+    gap: 1px;
+    background: #e0e8f0;
+    border: 1px solid #e0e8f0;
+    border-bottom: none;
+}
+
+.about-info-grid-row1 {
+    grid-template-columns: 1fr;
+}
+
+.about-info-grid-row2 {
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid #e0e8f0;
+    margin-bottom: 24px;
+}
+
+.about-info-item {
+    background: #fff;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about-info-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #99aabb;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.about-info-value {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0a1a2e;
+}
+
+/* ── Lĩnh vực ─────────────────────────────────────── */
+.about-linh-vuc {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about-linh-vuc-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0a1a2e;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e85d27;
+    display: inline-block;
+}
+
+.about-linh-vuc-text {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14.5px;
+    color: #445566;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.about-linh-vuc-img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* ── Mission cards ────────────────────────────────── */
+.about-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.mission-card {
+    background: #f7f9fc;
+    border: 1px solid #e0e8f0;
+    border-top: 3px solid #e85d27;
+    padding: 24px 20px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.mission-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    border-top-color: #1a7abf;
+}
+
+.mission-icon {
+    color: #1a7abf;
+    margin-bottom: 14px;
+    transition: color 0.25s ease;
+}
+
+.mission-card:hover .mission-icon {
+    color: #e85d27;
+}
+
+.mission-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0a1a2e;
+    margin: 0 0 10px;
+}
+
+.mission-desc {
+    font-size: 13px;
+    color: #667788;
+    line-height: 1.7;
+    margin: 0 0 14px;
+}
+
+.mission-readmore {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e85d27;
+    transition: gap 0.2s ease;
+}
+
+.mission-card:hover .mission-readmore {
+    letter-spacing: 0.5px;
+}
+
+/* ── Modal backdrop ───────────────────────────────── */
+.mission-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 26, 46, 0.7);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: backdropFadeIn 0.2s ease;
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ── Modal box ────────────────────────────────────── */
+.mission-modal {
+    background: #fff;
+    width: 100%;
+    max-width: 560px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.25s ease;
+    border-top: 4px solid #e85d27;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mission-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #99aabb;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    z-index: 1;
+}
+
+.mission-modal-close:hover {
+    color: #e85d27;
+}
+
+.mission-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid #e0e8f0;
+}
+
+.mission-modal-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f0f8, #c8daf0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a7abf;
+    flex-shrink: 0;
+}
+
+.mission-modal-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0a1a2e;
+    margin: 0;
+}
+
+.mission-modal-body {
+    padding: 24px 28px 32px;
+}
+
+.mission-modal-summary {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a7abf;
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic;
+}
+
+.mission-modal-divider {
+    height: 1px;
+    background: #e0e8f0;
+    margin: 20px 0;
+    position: relative;
+}
+
+.mission-modal-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 2px;
+    background: #e85d27;
+    margin-top: -0.5px;
+}
+
+.mission-modal-detail {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    color: #445566;
+    line-height: 1.85;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 1024px) {
+    .about-mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .about-info-grid-row1,
+    .about-info-grid-row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .about-mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-modal {
+        max-height: 90vh;
+    }
+
+    .mission-modal-header {
+        padding: 20px 20px 16px;
+    }
+
+    .mission-modal-body {
+        padding: 20px 20px 28px;
+    }
+}

@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=Rajdhani:wght@700;800&display=swap');
+
+/* ── Banner ───────────────────────────────────────── */
+.spda-banner {
+    position: relative;
+    background: linear-gradient(135deg, #1a7abf 0%, #1565a8 50%, #0f4f8a 100%);
+    padding: 100px 0 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.spda-banner-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+.spda-banner-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+}
+
+.spda-banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.spda-banner-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 800;
+    color: #e85d27;
+    letter-spacing: 4px;
+    margin: 0 0 16px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.spda-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.spda-breadcrumb a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.spda-breadcrumb a:hover {
+    color: #fff;
+}
+
+/* ── Main layout ──────────────────────────────────── */
+.spda-main {
+    background: #f7f9fc;
+    padding: 48px 0 80px;
+    min-height: 600px;
+}
+
+.spda-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* ── Sidebar ──────────────────────────────────────── */
+.spda-sidebar {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spda-sidebar-heading {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background: #0a1a2e;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.spda-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e0e8f0;
+    border-top: none;
+}
+
+.spda-sidebar-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334455;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #e8edf3;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.spda-sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.spda-sidebar-item:hover {
+    background: #f0f6fb;
+    color: #1a7abf;
+    padding-left: 24px;
+}
+
+.spda-sidebar-item.active {
+    background: #e85d27;
+    color: #fff;
+    font-weight: 600;
+}
+
+.spda-sidebar-item.active:hover {
+    background: #d44e1f;
+    padding-left: 20px;
+}
+
+.spda-sidebar-arrow {
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.spda-sidebar-item.active .spda-sidebar-arrow,
+.spda-sidebar-item:hover .spda-sidebar-arrow {
+    opacity: 1;
+}
+
+/* ── Sidebar contact ──────────────────────────────── */
+.spda-sidebar-contact {
+    margin-top: 24px;
+    background: #0a1a2e;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.spda-sidebar-contact-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spda-sidebar-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #8899aa;
+}
+
+.spda-sidebar-contact-item svg {
+    color: #e85d27;
+    flex-shrink: 0;
+}
+
+.spda-sidebar-contact-btn {
+    display: block;
+    text-align: center;
+    margin-top: 4px;
+    padding: 10px 16px;
+    background: #e85d27;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.spda-sidebar-contact-btn:hover {
+    background: #c44010;
+}
+
+/* ── Content area ─────────────────────────────────── */
+.spda-content {
+    background: #fff;
+    border: 1px solid #e0e8f0;
+    min-height: 500px;
+}
+
+/* ── Shared section styles (dùng trong các tab con) ── */
+.spda-section {
+    padding: 36px 36px 48px;
+}
+
+.spda-section-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0a1a2e;
+    margin: 0 0 10px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid #e85d27;
+    display: inline-block;
+}
+
+.spda-section-desc {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    color: #667788;
+    line-height: 1.75;
+    margin: 16px 0 28px;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 1024px) {
+    .spda-inner {
+        grid-template-columns: 260px 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .spda-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .spda-sidebar {
+        position: static;
+    }
+
+    .spda-section {
+        padding: 24px 20px 36px;
+    }
+}

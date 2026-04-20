@@ -1,0 +1,231 @@
+/* ── Org Chart V2 ─────────────────────────────────── */
+.org-chart-v2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0 24px;
+    width: 100%;
+}
+
+.org-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.org-row-3 {
+    gap: 24px;
+    max-width: 640px;
+}
+
+.org-row-depts {
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.org-vline {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, #e85d27, #1a7abf);
+    opacity: 0.5;
+}
+
+.org-hline-wrap {
+    display: flex;
+    justify-content: center;
+    width: 91%;
+    position: relative;
+    height: 0;
+}
+
+.org-hline {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 2px;
+    background: rgba(26, 122, 191, 0.3);
+}
+
+.org-hline-wide {
+    width: 90%;
+}
+
+.org-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+
+.org-card:hover {
+    transform: translateY(-4px);
+}
+
+.org-card-avatar {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    margin-bottom: -24px;
+}
+
+.org-card-avatar-icon {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, #e85d27, #f07a44);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.org-card-avatar-photo {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #e8f0f8, #c8daf0);
+    color: #1a7abf;
+}
+
+.org-card-avatar-md {
+    width: 120px;
+    height: 120px;
+}
+
+.org-card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.org-card-label {
+    background: #e85d27;
+    padding: 32px 24px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 200px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(50% + 14px) calc(100% - 14px), 50% 100%, calc(50% - 14px) calc(100% - 14px), 0 calc(100% - 14px));
+}
+
+.org-card-deputy .org-card-label {
+    min-width: 170px;
+    padding: 28px 16px 24px;
+}
+
+.org-card-name {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.org-card-name-sm {
+    font-size: 12px;
+}
+
+.org-card-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+}
+
+.org-card-title-sm {
+    font-size: 11px;
+}
+
+.org-dept-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+
+.org-dept-card:hover {
+    transform: translateY(-4px);
+}
+
+.org-dept-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e85d27, #f07a44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(232, 93, 39, 0.3);
+    position: relative;
+    z-index: 1;
+    margin-bottom: -16px;
+}
+
+.org-dept-label {
+    background: #1a7abf;
+    padding: 24px 8px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    width: 100%;
+    min-height: 100px;
+}
+
+.org-dept-label span {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .org-row-3 {
+        gap: 12px;
+    }
+
+    .org-card-label {
+        min-width: 120px;
+        padding: 28px 10px 24px;
+    }
+
+    .org-card-name {
+        font-size: 11px;
+    }
+
+    .org-card-title {
+        font-size: 10px;
+    }
+
+    .org-dept-card {
+        width: 80px;
+    }
+
+    .org-dept-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .org-dept-label span {
+        font-size: 8px;
+    }
+}

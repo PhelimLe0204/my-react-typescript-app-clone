@@ -1,0 +1,353 @@
+/* ── Product grid ─────────────────────────────────── */
+.sp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── Product card ─────────────────────────────────── */
+.sp-card {
+    background: #f7f9fc;
+    border: 1px solid #e0e8f0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+    transform: translateY(-4px);
+    border-color: transparent;
+}
+
+.sp-card-img {
+    height: 160px;
+    background: linear-gradient(135deg, #071a36, #0c2a52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sp-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sp-card-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4aa3d9;
+    width: 100%;
+    height: 100%;
+}
+
+.sp-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.sp-card-name {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0a1a2e;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.sp-card:hover .sp-card-name {
+    color: #e85d27;
+}
+
+.sp-card-desc {
+    font-size: 13px;
+    color: #667788;
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sp-card-more {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e85d27;
+    margin-top: 4px;
+    transition: letter-spacing 0.2s ease;
+}
+
+.sp-card:hover .sp-card-more {
+    letter-spacing: 0.5px;
+}
+
+/* ── Modal ────────────────────────────────────────── */
+.sp-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 26, 46, 0.75);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: spBackdropIn 0.2s ease;
+}
+
+@keyframes spBackdropIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.sp-modal {
+    background: #fff;
+    width: 100%;
+    max-width: 640px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: spModalIn 0.25s ease;
+    border-top: 4px solid #e85d27;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes spModalIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.sp-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #e0e8f0;
+    cursor: pointer;
+    color: #99aabb;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.sp-modal-close:hover {
+    color: #e85d27;
+    border-color: #e85d27;
+}
+
+.sp-modal-img {
+    height: 200px;
+    background: linear-gradient(135deg, #071a36, #0c2a52);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sp-modal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sp-modal-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4aa3d9;
+}
+
+.sp-modal-body {
+    padding: 28px 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sp-modal-badge {
+    display: inline-block;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: #fdf0eb;
+    color: #e85d27;
+    align-self: flex-start;
+}
+
+.sp-modal-badge.cong-nghe {
+    background: #e8f0f8;
+    color: #1a7abf;
+}
+
+.sp-modal-name {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0a1a2e;
+    margin: 0;
+}
+
+.sp-modal-desc {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    color: #445566;
+    line-height: 1.85;
+    margin: 0;
+}
+
+.sp-modal-divider {
+    height: 1px;
+    background: #e0e8f0;
+    position: relative;
+}
+
+.sp-modal-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -0.5px;
+    width: 48px;
+    height: 2px;
+    background: #e85d27;
+}
+
+.sp-modal-features-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0a1a2e;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.sp-modal-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sp-modal-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13.5px;
+    color: #445566;
+}
+
+.sp-feature-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e85d27;
+    flex-shrink: 0;
+}
+
+.sp-modal-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sp-tag {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a7abf;
+    background: #e8f0f8;
+    border: 1px solid #c0d8ec;
+    padding: 4px 12px;
+}
+
+.sp-modal-cta {
+    display: flex;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+.sp-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e85d27;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: 2px solid #e85d27;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.sp-btn-primary:hover {
+    background: transparent;
+    color: #e85d27;
+}
+
+.sp-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: transparent;
+    color: #667788;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e0e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sp-btn-secondary:hover {
+    border-color: #99aabb;
+    color: #445566;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 1024px) {
+    .sp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sp-modal {
+        max-height: 90vh;
+    }
+
+    .sp-modal-body {
+        padding: 20px 20px 28px;
+    }
+
+    .sp-modal-cta {
+        flex-direction: column;
+    }
+}

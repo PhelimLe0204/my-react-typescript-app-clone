@@ -1,0 +1,112 @@
+/* ── Timeline ─────────────────────────────────────── */
+.timeline {
+    position: relative;
+    padding: 16px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #e85d27, #1a7abf);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.timeline-item.left {
+    flex-direction: row;
+    padding-right: calc(50% + 40px);
+}
+
+.timeline-item.right {
+    flex-direction: row-reverse;
+    padding-left: calc(50% + 40px);
+}
+
+.timeline-year {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #e85d27;
+    min-width: 56px;
+    line-height: 1;
+    padding-top: 4px;
+}
+
+.timeline-item.right .timeline-year {
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e85d27;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #e85d27;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    background: #f7f9fc;
+    border: 1px solid #e0e8f0;
+    border-left: 3px solid #e85d27;
+    padding: 16px 20px;
+    flex: 1;
+}
+
+.timeline-item.right .timeline-content {
+    border-left: none;
+    border-right: 3px solid #1a7abf;
+}
+
+.timeline-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0a1a2e;
+    margin: 0 0 6px;
+}
+
+.timeline-desc {
+    font-size: 13px;
+    color: #667788;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 16px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        flex-direction: row;
+        padding: 0 0 0 48px;
+    }
+
+    .timeline-dot {
+        left: 16px;
+    }
+
+    .timeline-item.right .timeline-content {
+        border-left: 3px solid #e85d27;
+        border-right: none;
+    }
+}

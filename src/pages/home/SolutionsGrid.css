@@ -1,0 +1,352 @@
+/* =====================================================
+   SolutionsGrid.css  – ANSV theme
+   Palette:  #e85d27 (orange)  |  #0a1a2e (navy)
+             #1a7abf (blue)    |  #4aa3d9 (light blue)
+   Font:     Exo 2  (already loaded in Home.css)
+   ===================================================== */
+
+/* ── Section wrapper ─────────────────────────────── */
+.sg-section {
+  padding: 80px 0 100px;
+  background: #f7f9fc;   /* same as services-section */
+}
+
+/* ── Inner container ─────────────────────────────── */
+.sg-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Grid ────────────────────────────────────────── */
+.sg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+/* ── Card ────────────────────────────────────────── */
+.sg-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.28s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.28s ease;
+  will-change: transform;
+  z-index: 1;
+}
+
+.sg-card--hovered {
+  z-index: 10;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.75),
+    0 0 0 2px #e85d27;
+}
+
+/* ── Background image ────────────────────────────── */
+.sg-card__img {
+  position: absolute;
+  inset: -8%;
+  background-size: cover;
+  background-position: center;
+  transition:
+    transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    filter  0.38s ease;
+  will-change: transform;
+  filter: brightness(0.72) saturate(0.8);
+}
+
+.sg-card--hovered .sg-card__img {
+  filter: brightness(0.22) saturate(0.45);
+}
+
+/* ── Always-on dark layer ────────────────────────── */
+.sg-card__darken {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 16, 31, 0.36);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sg-card--hovered .sg-card__darken {
+  opacity: 0;
+}
+
+/* ── Gradient fade to bottom ─────────────────────── */
+.sg-card__grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 16, 31, 0.92) 0%,
+    rgba(3, 16, 31, 0.22) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sg-card--hovered .sg-card__grad {
+  opacity: 0;
+}
+
+/* ── Orange accent top bar ───────────────────────── */
+.sg-card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #e85d27;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 6;
+}
+
+.sg-card--hovered .sg-card__accent {
+  transform: scaleX(1);
+}
+
+/* ── Tag badge ───────────────────────────────────── */
+.sg-card__tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(232, 93, 39, 0.85);
+  padding: 3px 10px;
+  z-index: 5;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  transition: opacity 0.2s ease;
+}
+
+.sg-card--hovered .sg-card__tag {
+  opacity: 0;
+}
+
+/* ── Idle footer (title bar) ─────────────────────── */
+.sg-card__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 18px 18px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sg-card__footer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 55%;
+  background: #e85d27;
+}
+
+.sg-card__footer--hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.sg-card__footer-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: #4aa3d9;
+}
+
+.sg-card__footer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sg-card__footer-title {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e0eeff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.3px;
+}
+
+/* ── Hover overlay (parallax) ────────────────────── */
+.sg-overlay {
+  position: absolute;
+  inset: -6%;
+  clip-path: inset(6%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    rgba(3, 16, 31, 0.94) 0%,
+    rgba(7, 26, 54, 0.91)  50%,
+    rgba(3, 16, 31, 0.94) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.32s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.1s  cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, opacity;
+}
+
+.sg-overlay--on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Overlay content ─────────────────────────────── */
+.sg-overlay__body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 260px;
+}
+
+.sg-overlay__icon {
+  width: 40px;
+  height: 40px;
+  color: #e85d27;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.28s 0.05s ease, transform 0.32s 0.05s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sg-overlay--on .sg-overlay__icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sg-overlay__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sg-overlay__sep {
+  width: 32px;
+  height: 2px;
+  background: #e85d27;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.28s 0.1s ease, transform 0.32s 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sg-overlay--on .sg-overlay__sep {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.sg-overlay__title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.28s 0.13s ease, transform 0.32s 0.13s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sg-overlay--on .sg-overlay__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sg-overlay__desc {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #7a9bba;
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.28s 0.17s ease, transform 0.32s 0.17s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sg-overlay--on .sg-overlay__desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sg-overlay__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 9px 20px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: #e85d27;
+  border: 2px solid #e85d27;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity   0.28s 0.22s ease,
+    transform 0.32s 0.22s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.22s ease,
+    color      0.22s ease;
+}
+
+.sg-overlay--on .sg-overlay__btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sg-overlay__btn:hover {
+  background: transparent;
+  color: #e85d27;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .sg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sg-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .sg-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .sg-overlay__desc {
+    display: none;
+  }
+}
