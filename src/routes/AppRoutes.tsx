@@ -3,9 +3,10 @@ import MainLayout from '../components/layout/MainLayout';
 import Home from '../pages/home/HomeNew';
 import About from '../pages/about/About';
 import Portfolio from '../pages/portfolio/SanPhamDuAn';
-import Solution from '../pages/solution/Solution';
-import Services from '../pages/Services';
-import Contact from '../pages/Contact';
+import GiaiPhap from '../pages/giai-phap/GiaiPhap';
+import Services from '../pages/services/Services';
+import News from '../pages/news/TinTuc';
+import Contact from '../pages/contact/Contact';
 import NotFound from '../pages/not-found/NotFound';
 
 function AppRoutes() {
@@ -15,8 +16,9 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/solution" element={<Solution />} />
+        <Route path="/giai-phap" element={<GiaiPhap />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
 

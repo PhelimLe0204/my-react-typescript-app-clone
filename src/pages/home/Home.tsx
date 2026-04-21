@@ -149,7 +149,7 @@ const AboutBanner: React.FC = () => (
             <div className="about-banner-content">
                 <span className="section-label" style={{ color: "#4aa3d9" }}>VỀ CHÚNG TÔI</span>
                 <h2 className="section-title" style={{ color: "#fff" }}>
-                    Công ty Cổ phần Công nghệ ANSV
+                    Công ty TNHH Thiết Bị Viễn Thông ANSV
                 </h2>
                 <p style={{ color: "#aac4dd", lineHeight: 1.8, fontSize: "15px", marginBottom: "28px" }}>
                     Với hơn 30 năm hoạt động trong lĩnh vực công nghệ thông tin, ANSV tự hào là đối tác

@@ -34,9 +34,12 @@ const navItems: NavItem[] = [
             {
                 label: "Giải pháp",
                 dropdown: [
-                    { label: "Chuyên ngành viễn thông", href: "/solution?tab=telecom" },
-                    { label: "Công nghệ thông tin", href: "/solution?tab=it" },
-                    { label: "Chuyển đổi số", href: "/solution?tab=digital-transformation" },
+                    // { label: "Chuyên ngành viễn thông", href: "/solution?tab=telecom" },
+                    // { label: "Công nghệ thông tin", href: "/solution?tab=it" },
+                    // { label: "Chuyển đổi số", href: "/solution?tab=digital-transformation" },
+                    { label: "Chuyên ngành viễn thông", href: "/giai-phap?tab=vien-thong" },
+                    { label: "Công nghệ thông tin", href: "/giai-phap?tab=cong-nghe-tt" },
+                    { label: "Chuyển đổi số", href: "/giai-phap?tab=chuyen-doi-so" },
                 ],
             },
             {

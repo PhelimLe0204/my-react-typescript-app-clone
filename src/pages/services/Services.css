@@ -1,0 +1,433 @@
+.sg-banner {
+    position: relative;
+    background: linear-gradient(135deg, #03101f 0%, #071a36 50%, #0a2040 100%);
+    padding: 100px 0 28px;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 2px solid #e85d27;
+}
+
+.sg-banner-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(74, 163, 217, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 163, 217, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+.sg-banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.sg-banner-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 800;
+    color: #e85d27;
+    letter-spacing: 4px;
+    margin: 0 0 16px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.sg-banner-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sg-banner-breadcrumb a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sg-banner-breadcrumb a:hover {
+    color: #fff;
+}
+
+.sg-overlay__btn {
+    cursor: pointer;
+}
+
+/* ─────────────────────────────────────────
+   SERVICE POPUP — hoàn toàn tách biệt,
+   không đụng vào class nào của Home.css
+   ───────────────────────────────────────── */
+
+/* Overlay backdrop */
+.svc-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(3, 10, 20, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: background 0.38s ease;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    transition: background 0.38s ease, backdrop-filter 0.38s ease;
+}
+
+.svc-overlay--on {
+    background: rgba(3, 10, 20, 0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* Popup container */
+.svc-popup {
+    position: relative;
+    background: #0d1f35;
+    border: 1px solid rgba(74, 163, 217, 0.18);
+    width: 100%;
+    max-width: 780px;
+    max-height: 88vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 93, 39, 0.3) transparent;
+
+    /* Scale-up from card origin */
+    transform-origin: var(--origin-x, 50%) var(--origin-y, 50%);
+    transform: scale(0.15);
+    opacity: 0;
+    transition:
+        transform 0.38s cubic-bezier(0.34, 1.3, 0.64, 1),
+        opacity 0.28s ease;
+
+    clip-path: polygon(0 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% 100%,
+            20px 100%,
+            0 calc(100% - 20px));
+}
+
+.svc-popup::-webkit-scrollbar {
+    width: 3px;
+}
+
+.svc-popup::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.svc-popup::-webkit-scrollbar-thumb {
+    background: rgba(232, 93, 39, 0.4);
+    border-radius: 2px;
+}
+
+.svc-popup--open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.svc-popup--closing {
+    transform: scale(0.08);
+    opacity: 0;
+    transition:
+        transform 0.32s cubic-bezier(0.55, 0, 1, 0.45),
+        opacity 0.22s ease;
+}
+
+/* Hero image area */
+.svc-popup__hero {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.svc-popup__hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.svc-popup__hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(13, 31, 53, 0.3) 0%,
+            rgba(13, 31, 53, 0.85) 100%);
+}
+
+/* Tag badge */
+.svc-popup__tag {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    background: #e85d27;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Close button */
+.svc-popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    background: rgba(13, 31, 53, 0.7);
+    border: 1px solid rgba(74, 163, 217, 0.25);
+    color: #aac4dd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.svc-popup__close:hover {
+    background: #e85d27;
+    border-color: #e85d27;
+    color: #fff;
+}
+
+/* Icon + title on hero */
+.svc-popup__hero-content {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.svc-popup__icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(232, 93, 39, 0.15);
+    border: 1px solid rgba(232, 93, 39, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e85d27;
+    flex-shrink: 0;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.svc-popup__icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.svc-popup__title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.3px;
+}
+
+/* Body */
+.svc-popup__body {
+    padding: 28px 28px 24px;
+}
+
+.svc-popup__detail {
+    font-size: 14px;
+    color: #aac4dd;
+    line-height: 1.8;
+    margin: 0 0 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(74, 163, 217, 0.12);
+}
+
+/* Two-column layout */
+.svc-popup__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+}
+
+/* Block: features & benefits */
+.svc-popup__block-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #e85d27;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.svc-popup__block-accent {
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #e85d27;
+    flex-shrink: 0;
+}
+
+/* Features list */
+.svc-popup__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.svc-popup__feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #c8daea;
+    line-height: 1.5;
+}
+
+.svc-popup__feature-dot {
+    width: 6px;
+    height: 6px;
+    background: #e85d27;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Benefits */
+.svc-popup__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.svc-popup__benefit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    background: rgba(74, 163, 217, 0.05);
+    border-left: 2px solid #e85d27;
+}
+
+.svc-popup__benefit-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.svc-popup__benefit-desc {
+    font-size: 12px;
+    color: rgba(170, 196, 221, 0.7);
+    line-height: 1.6;
+}
+
+/* Footer */
+.svc-popup__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(74, 163, 217, 0.12);
+    flex-wrap: wrap;
+}
+
+.svc-popup__footer-note {
+    font-size: 13px;
+    color: rgba(170, 196, 221, 0.6);
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 200px;
+}
+
+.svc-popup__footer-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.svc-popup__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e85d27;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 11px 22px;
+    text-decoration: none;
+    border: 2px solid #e85d27;
+    transition: all 0.22s ease;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.svc-popup__cta-btn:hover {
+    background: transparent;
+    color: #e85d27;
+}
+
+.svc-popup__close-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border: 1px solid rgba(74, 163, 217, 0.25);
+    color: #aac4dd;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.svc-popup__close-btn:hover {
+    border-color: rgba(74, 163, 217, 0.5);
+    color: #fff;
+    background: rgba(74, 163, 217, 0.08);
+}
+
+/* ── Responsive popup ── */
+@media (max-width: 640px) {
+    .svc-popup {
+        max-height: 92vh;
+        clip-path: none;
+    }
+
+    .svc-popup__cols {
+        grid-template-columns: 1fr;
+    }
+
+    .svc-popup__footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .svc-popup__hero {
+        height: 160px;
+    }
+
+    .svc-popup__title {
+        font-size: 18px;
+    }
+}

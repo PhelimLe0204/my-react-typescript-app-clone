@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
                             <span className="footer-logo-tagline">TECHNOLOGIES CREATE FUTURE</span>
                         </div>
                         <p className="footer-desc">
-                            Công ty Cổ phần Công nghệ ANSV chuyên cung cấp các giải pháp
+                            Công ty TNHH Thiết Bị Viễn Thông ANSV chuyên cung cấp các giải pháp
                             công nghệ thông tin, phần mềm và dịch vụ IT toàn diện.
                         </p>
                         <div className="footer-socials">
